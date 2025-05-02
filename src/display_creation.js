@@ -10,8 +10,10 @@ const add_location = async (display, value, loading) => {
   const data_array = await weather_fetch(value);
   if (data_array == null) {
     alert("Invalid Place or Unknown Place");
+    return add_location(display, "India", loading);
   } else if (data_array == 404) {
     alert("No Place provided");
+    return add_location(display, "India", loading);
   }
   clear_display(display, loading);
   add_weather_data(display, data_array);
